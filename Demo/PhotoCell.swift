@@ -7,26 +7,28 @@
 //
 
 import UIKit
-
+protocol PhotoCellDelegate{
+    func deleteCell(cell:PhotoCell)
+}
 class PhotoCell: UICollectionViewCell {
+    
     @IBOutlet var imgView: UIImageView!
     @IBOutlet var viewDeleteButton: UIVisualEffectView!
     @IBOutlet var viewDelete: UIView!
-    
-    var imageName:String!{
-        didSet{
-            imgView.image = UIImage.init(named: imageName)
-            viewDeleteButton.layer.cornerRadius = 10
-            viewDeleteButton.layer.masksToBounds = true
-            viewDeleteButton.isHidden = true
-        }
-    }
-    var editing:Bool = false{
-        didSet{
-            viewDeleteButton.isHidden = !editing
-        }
+    var delegate:PhotoCellDelegate? = nil
+    override func awakeFromNib() {
+        viewDeleteButton.layer.cornerRadius = 10
+        imgView.layer.cornerRadius = 10
+        viewDeleteButton.layer.masksToBounds = true
+        viewDeleteButton.isHidden = true
     }
     @IBAction func clickOnButtonDelete(_ sender: Any) {
         
+        if(delegate != nil){
+            print("delete delegate")
+            delegate?.deleteCell(cell: self)
+        }else{
+            print("nil")
+        }
     }
 }

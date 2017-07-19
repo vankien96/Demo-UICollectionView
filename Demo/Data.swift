@@ -26,6 +26,18 @@ class PhotoData{
                 }
             }
         }
+//        var categoryData = [photoCategory]()
+//        var category:photoCategory = photoCategory(categoryName: "Family", categoryIconName: "family", imageNames: generateImageName(startName: "f", numberOfPhoto: 9))
+//        categoryData.append(category)
+//        
+//        category = photoCategory(categoryName: "Foods", categoryIconName: "foods", imageNames: generateImageName(startName: "fo", numberOfPhoto: 8))
+//        categoryData.append(category)
+//        
+//        category = photoCategory(categoryName: "Travel", categoryIconName: "travel", imageNames: generateImageName(startName: "t", numberOfPhoto: 9))
+//        categoryData.append(category)
+//        
+//        category = photoCategory(categoryName: "Nature", categoryIconName: "nature", imageNames: generateImageName(startName: "n", numberOfPhoto: 8))
+//        categoryData.append(category)
         return categoryData
     }
     public class func getData() -> [String : Any]{
